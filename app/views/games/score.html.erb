@@ -1,0 +1,10 @@
+<h1> RESULTS </h1>
+
+<% if (@valid_guess == true) && (@response["found"] == true) %>
+  <p><strong>Congratulations !</strong> '<%= params[:word].upcase %>' is a valid english word !</p>
+<% elsif (@valid_guess == true) && (@response["found"] == false) %>
+  <p> Sorry but <strong>'<%=params[:word].upcase%>'</strong> is not a valid english word</p>
+<%  else  %>
+  <p> Sorry but <strong>'<%= params[:word].upcase%>'</strong> can't be built out of <%= @letters %></p>
+<% end %>
+<p><%= link_to "Play again", new_path %></p>
